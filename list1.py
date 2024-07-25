@@ -14,8 +14,11 @@
 # Note: python does not have a ++ operator, but += works.
 
 def match_ends(words):
-    # +++your code here+++
-    return
+    count = 0                                   #define variable for total count
+    for x in words:                             
+        if len(x) >= 2 and x[0] == x[-1]:       #Checking to see if each string len is greater than 1 and if first/last character match
+            count = count + 1                   #if true increment count by 1
+    return count                                #return count value
 
 
 # B. front_x
@@ -27,8 +30,15 @@ def match_ends(words):
 # before combining them.
 
 def front_x(words):
-    # +++your code here+++
-    return
+    List = []                                   #variable for list with no "X" words
+    XList = []                                  #varialbe for list with "X" words
+    for x in words:                             #Sort each string in list into separate lists based off whether it starts with "x" or not
+        if x[0] == str("x"):
+            XList.append(x)
+        else:
+            List.append(x)
+    SortedList = sorted(XList) + sorted(List)   #define new variable of the list requested in challenge       
+    return SortedList                           #return final sorted list
 
 
 # C. sort_last
@@ -39,8 +49,10 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 
 def sort_last(tuples):
-    # +++your code here+++
-    return
+    def TupleLast(t):                               #create custom key function
+        return t[-1]
+    return_value = sorted(tuples, key=TupleLast)    #create variable that sorts "tuples" strings by custom key function
+    return return_value
 
 
 # Simple provided test() function used in main() to print
